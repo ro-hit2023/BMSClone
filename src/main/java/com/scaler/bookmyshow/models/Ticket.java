@@ -20,7 +20,7 @@ public class Ticket extends BaseModel{
     private List<Payment> payments;
 
     @ManyToOne
-    private USer user; //one user can book  many tickets
+    private User user; //one user can book  many tickets
 
     @ManyToMany
     private List<ShowSeat> showSeats; // 1 Ticket -> many showseats 1:M
