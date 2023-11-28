@@ -18,11 +18,10 @@ public class BaseModel {
     private long id; //@Id will tell jpa that this attribute will be my primary key
 
     @CreatedDate // this annotation will make this column audit column
-
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date createdAt;//This is a time stamp
+
     @Temporal(value = TemporalType.TIMESTAMP)
     @LastModifiedDate // this annotation will make this column audit column
-    @Temporal(value = TemporalType.TIMESTAMP)
     private  Date updatedAt;//This is a time stamp
-
 }
