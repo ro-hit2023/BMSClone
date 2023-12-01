@@ -13,10 +13,10 @@ public class UserController {
     @Autowired
     private UserService userService; // interface
 
-    public UserSignUpResponseDTO signUp(UserSignUpRequestDTO userSignUpRequestDTO) {
+    public UserSignUpResponseDTO signUp(UserSignUpRequestDTO userSignUpRequestDTO){
         User user;
         UserSignUpResponseDTO responseDTO = new UserSignUpResponseDTO();
-        try {
+        try{
             UserControllerUtil.validateUserSignUPRequestDTO(userSignUpRequestDTO);
             user = userService.signUp(userSignUpRequestDTO.getName(), userSignUpRequestDTO.getEmail(), userSignUpRequestDTO.getPassword());
             // method that converts internal models into DTOs
@@ -27,10 +27,9 @@ public class UserController {
             responseDTO.setResponseCode(200);
             responseDTO.setResponseMessage("SUCCESS");
             return responseDTO;
-        } catch (Exception e) {
+        } catch (Exception e){
             responseDTO.setResponseCode(500);
             responseDTO.setResponseMessage("Internal Server Error");
             return responseDTO;
         }
     }
-}
